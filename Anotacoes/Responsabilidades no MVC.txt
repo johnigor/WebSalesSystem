@@ -1,0 +1,25 @@
+			Responsabilidades no MVC:
+
+Mvc é um padrão de desenvolvimento de aplicações que consiste em dividir a aplicação em três partes.
+
+- Model: estrutura dos dados e suas transformações(domain model).
+	- Também chamado de "o sistema" (o coração).
+	- Composto de Entities e Services (relacionados às entities).
+		- Repositories (objetos que acessam dados persistentes).
+
+- Controllers: receber e tratar as interações do usuário com o sistema.
+
+- Views: definir a estrutura e comportamento das telas.
+
+
+			Comunicação entre as camadas:
+
+View <-> Controller <-> Model (Service Layer, Data Acess Layer and Entities).
+
+
+			Frameworks e Template Engines(MVC)
+		(Programming language / framework & template engine)
+
+- Java / Spring & Thymeleaf
+- C# / ASP.NET Core & @razor engine
+- PHP / laravel & Blade Template
