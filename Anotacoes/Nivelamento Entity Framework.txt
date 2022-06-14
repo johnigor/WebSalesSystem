@@ -1,0 +1,78 @@
+				Nivelamento: Entity Framework
+
+Problema: Por muitos anos, uma grande dificuldade de se criar sistemas orientados a objetos foi a comunicação
+com o banco de dados relacional
+
+Livro: Patterns of Enterprise Application Architecture (Autor: Martin Fowler)
+	"~30% do esforço de se fazer um sistema"
+
+
+				Outras questões que devem ser tratadas:
+
+- Contexto de persistência (monitorar alterações nos objetos que estão atrelados a uma conexão em um dado momento)
+	- Alterações
+	- Transação
+	- Concorrência
+
+- Mapa de identidade (cache de objetos já carregados)
+
+- Carregamento tardio (lazy loading)
+
+- Etc.
+
+
+				Solução: Mapeamento Objeto-Relacional (ORM)
+
+ORM (Object-Relational Mapping): Permite programar em nível de objetos e comunicar de forma transparente com um 
+banco de dados relacional
+
+
+				Entity Framework:
+
+- Entity Framework 6: Windows
+- Entity Framework Core: Multiplataforma
+
+				Providers:
+
+- Implementações com bancos de dados específicos
+
+Por ex: SQL Server, MySQL, PostgreSQL, ORACLE, SQLite, IBM DB2...Etc.
+
+
+				Principais classes:
+
+
+- DbContext: um objeto DbContext encapsula uma sessão com o banco de dados para um determinado modelo de dados (representado por DbSet's). 
+	• É usado para consultar e salvar entidades no banco de dados
+	• Define quais entidades farão parte do modelo de dados do sistema
+	• Pode definir várias configurações
+	• É uma combinação dos padrões Unity of Work e Repository
+		• Unity of work: "mantém uma lista de objetos afetados por uma transação e coordena a 
+escrita de mudanças e trata possíveis problemas de concorrência" - Martin Fowler. 
+		• Repository: define um objeto capaz de realizar operações de acesso a dados (consultar, 
+salvar, atualizar, deletar) para uma entidade. 
+
+- DbSet<TEntity>: representa a coleção de entidades de um dado tipo em um contexto. Tipicamente corresponde a uma tabela do banco de dados
+
+
+				Processo geral para se executar operações:
+
+LINQ -> DbSet
+	Chamar as funções de alta ordem, expressões lambda, e essas operações do LINQ serão convertidas em tempo de execução para consultas
+SQL no banco de dados.
+
+SQL -> Banco de dados
+
+
+
+
+
+
+
+
+
+
+
+
+
+
