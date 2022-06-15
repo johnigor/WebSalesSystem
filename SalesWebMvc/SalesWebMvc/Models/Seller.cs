@@ -7,23 +7,34 @@ namespace SalesWebMvc.Models
 {
     public class Seller
     {
-        public int Id { get; set; }        
+        public int Id { get; set; }
+
+
+        // {0} = nome do atributo, {1} = maximo caracteres, {2} minimo caracteres
+        [Required(ErrorMessage = "{0} required!")] //Campo obrigatorio (required)
+        [StringLength(60, MinimumLength = 3, ErrorMessage = "{0} size should be between {2} and {1}")] //Limitacao de tamanho do nome (stringlenght)
         public string Name { get; set; }
 
-        [DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage = "{0} required!")]
+        [EmailAddress(ErrorMessage = "Enter a valid email!")] //valida a existencia do email
+        [DataType(DataType.EmailAddress)] //formata como email
         public string Email { get; set; }
 
-        [Display(Name = "Birth Date")]
+        [Required(ErrorMessage = "{0} required!")]
+        [Display(Name = "Birth Date")] //formata o nome da forma como quisermos
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")] //formata a data nos padroes estabelecidos (nesse caso padrao do Brasil)
         public DateTime BirthDate { get; set; }
 
-        [Display(Name = "Base Salary")]
-        [DisplayFormat(DataFormatString = "{0:F2}")]
+        [Required(ErrorMessage = "{0} required!")]
+        [Range(100.0, 50000.00, ErrorMessage = "{0} must be from {1} to {2}")] //valida se o salario esta entre 100(minimo) e 50000(maximo)
+        [Display(Name = "Base Salary")] //formata o nome da forma como quisermos
+        [DisplayFormat(DataFormatString = "{0:F2}")] //duas casas decimais
         public double BaseSalary { get; set; }
+
         public Department Department { get; set; }
 
-        [Display(Name = "Department Id")]
+        [Display(Name = "Department Id")] //formata o nome da forma como quisermos
         public int DepartmentId { get; set; }
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
 
