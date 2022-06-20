@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace SalesWebMvc.Controllers
 {
@@ -25,7 +26,7 @@ namespace SalesWebMvc.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var list = await _sellerService.FindAllAsync();
+            var list =  await _sellerService.FindAllAsync();
             return View(list);
         }
 

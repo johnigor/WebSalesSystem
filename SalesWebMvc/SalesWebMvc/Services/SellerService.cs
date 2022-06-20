@@ -18,7 +18,7 @@ namespace SalesWebMvc.Services
             _context = context;
         }
 
-        public async Task<List<Seller>> FindAll()
+        public async Task<List<Seller>> FindAllAsync()
         {
             return await _context.Seller.ToListAsync();
         }
@@ -32,12 +32,7 @@ namespace SalesWebMvc.Services
         public async Task<Seller> FindByIdAsync(int id)
         {
             return await _context.Seller.Include(obj => obj.Department).FirstOrDefaultAsync(obj => obj.Id == id);
-        }
-
-        internal Task FindAllAsync()
-        {
-            throw new NotImplementedException();
-        }
+        }       
 
         public async Task RemoveAsync(int id)
         {
