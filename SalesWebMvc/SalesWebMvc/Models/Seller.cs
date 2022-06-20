@@ -29,7 +29,7 @@ namespace SalesWebMvc.Models
         [Required(ErrorMessage = "{0} required!")]
         [Range(100.0, 50000.00, ErrorMessage = "{0} must be from {1} to {2}")] //valida se o salario esta entre 100(minimo) e 50000(maximo)
         [Display(Name = "Base Salary")] //formata o nome da forma como quisermos
-        [DisplayFormat(DataFormatString = "{0:F2}")] //duas casas decimais
+        [DisplayFormat(DataFormatString = "{0:N}")] //duas casas decimais
         public double BaseSalary { get; set; }
 
         public Department Department { get; set; }
