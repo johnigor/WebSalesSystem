@@ -46,7 +46,7 @@ Another example:
 <br />
 Here is my contact. You can find me on Linkedin as well: https://www.linkedin.com/in/johnigor/
 
-![image](https://user-images.githubusercontent.com/91505101/174826442-4a552cee-34ec-418b-9766-50918d47368f.png)
+![image](https://user-images.githubusercontent.com/91505101/174830289-f8a8dd0d-3d56-497e-9394-7eb7f9ef27cd.png)
 
 <br />
 <br />
