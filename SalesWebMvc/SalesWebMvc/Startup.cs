@@ -38,10 +38,8 @@ namespace SalesWebMvc
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddEntityFrameworkSqlServer().AddDbContext<SalesWebMvcContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DataBase")));
 
-            services.AddDbContext<SalesWebMvcContext>(options =>
-                    options.UseMySql(Configuration.GetConnectionString("SalesWebMvcContext"), builder =>
-                    builder.MigrationsAssembly("SalesWebMvc")));
 
             services.AddScoped<SeedingService>();
             services.AddScoped<SellerService>();
@@ -59,7 +57,7 @@ namespace SalesWebMvc
             {
                 DefaultRequestCulture = new RequestCulture(enUS),
                 SupportedCultures = new List<CultureInfo> { enUS },
-                SupportedUICultures = new List<CultureInfo> { enUS}
+                SupportedUICultures = new List<CultureInfo> { enUS }
             };
 
             app.UseRequestLocalization(localizationOptions);
