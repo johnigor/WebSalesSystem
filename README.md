@@ -1,4 +1,4 @@
-# WebSalesSystem
+# Web Sales System
 This project is part of the Object Oriented Programming Course in C#, contains a Web Application using ASP.NET Core MVC and Entity Framework, all the project is conected 
 with a DataBase using MySQL and the system update the Db in real time. Was created so that salespeople can take control of their sales.
 
